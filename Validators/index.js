@@ -1,0 +1,48 @@
+const { body, validationResult } = require('express-validator');
+
+exports.createPostValidator = [
+  body('firstname', 'Firstname is required').notEmpty(),
+  body('firstname', 'Firstname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
+  
+  body('lastname', 'Lastname is required').notEmpty(),
+  body('lastname', 'Lastname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
+
+  body('email', 'Email is required').notEmpty(),
+  body('email', 'Please enter a valid email').isEmail(),
+
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const firstError = errors.array()[0].msg;
+      return res.status(400).json({ error: firstError });
+    }
+    next();
+  }
+];
+exports.UserSignUpValidator = [
+  body('name', 'name is required').notEmpty(),
+  body('name', 'name must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
+  
+  body('lastname', 'Lastname is required').notEmpty(),
+  body('lastname', 'Lastname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
+
+  body('email', 'email is required').notEmpty(),
+  body('email', 'email must be between 3 and 32 characters').isLength({ min: 3, max: 32 }),
+  body('email', 'Please enter a valid email')
+    .isEmail()
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/), 
+
+  body('password', 'password is required').notEmpty(),
+  body('password', 'password must cantain minimum 8 characters').isLength({ min: 8, max: 32 })
+  .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+  .withMessage("Ensures at least one lowercase and uppercase  letter, least one digit, at least one special character"), 
+
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const firstError = errors.array()[0].msg;
+      return res.status(400).json({ error: firstError });
+    }
+    next();
+  }
+];
