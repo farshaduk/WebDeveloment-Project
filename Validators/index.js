@@ -1,13 +1,13 @@
 const { body, validationResult } = require('express-validator');
 
 exports.createPostValidator = [
-  body('firstname', 'Firstname is required').notEmpty(),
-  body('firstname', 'Firstname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
+  body('firstname', 'firstname is required').notEmpty(),
+  body('firstname', 'firstname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
   
-  body('lastname', 'Lastname is required').notEmpty(),
-  body('lastname', 'Lastname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
+  body('lastname', 'lastname is required').notEmpty(),
+  body('lastname', 'lLastname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),
 
-  body('email', 'Email is required').notEmpty(),
+  body('email', 'email is required').notEmpty(),
   body('email', 'Please enter a valid email').isEmail(),
 
   (req, res, next) => {
