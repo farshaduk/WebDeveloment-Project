@@ -1,0 +1,56 @@
+.login-page .login-header {
+    background-color: #343a40;
+  }
+  
+  .login-page .login-header h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .login-page .login-container {
+    background-color: #0066cc;
+    height: calc(100vh - 60px); /* Adjust height based on header/footer */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://via.placeholder.com/1920x1080"); /* Map background image */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-page .login-container .login-content {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .login-page .login-container .login-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  .login-page .login-box input {
+    border-radius: 5px;
+  }
+  
+  .login-page .login-box .toggle-password {
+    color: #aaa;
+  }
+  
+  .login-page .login-footer {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .login-footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-footer a:hover {
+    text-decoration: underline;
+  }
