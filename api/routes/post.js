@@ -1,15 +1,19 @@
-
+const formidable = require('formidable');
 const express = require('express');
 const {getPost,createPost,getPostsByUser,postById,
-    isPoster,deletePost,updatePost} = require('../controllers/post');
+    isPoster,deletePost,
+    updatePost,postPhoto,getPostdetails} = require('../controllers/post');
 const {requiresignin} = require('../controllers/Auth');
 const {userById} = require('../controllers/User');
 const {createPostValidator} = require('../Validators')
 
 const router = express.Router();
 
+
 router.get('/posts',getPost );
-router.post('/post/new/:userId',requiresignin,createPost,createPostValidator );
+router.get('/post/:postId',getPostdetails );
+router.get('/post/photo/:postId', postPhoto);
+router.post('/post/new',requiresignin,createPost,createPostValidator );
 router.get('/posts/by/:userId',requiresignin,getPostsByUser );
 router.delete('/post/:postId',requiresignin,isPoster,deletePost);
 router.put('/post/:postId',requiresignin,isPoster,updatePost);

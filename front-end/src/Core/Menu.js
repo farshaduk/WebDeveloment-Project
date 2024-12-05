@@ -54,7 +54,10 @@ const Menu = () => {
      {isAuthenticated && (
         <div className="menu d-flex align-items-center gap-3">         
           <div className="icon">
-            <i className="fas fa-comments"></i>
+          <NavLink to="/explorer">
+         <i className="fas fa-search"></i>
+        </NavLink>
+           
           </div>
           <div className="icon">
             <i className="fas fa-bell"></i>

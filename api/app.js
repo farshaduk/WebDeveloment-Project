@@ -9,15 +9,17 @@ const fs = require('fs').promises;
 const cors = require('cors');
 const dotenv= require('dotenv');
 
+
 dotenv.config();
 
 //db
 mongoose.connect(process.env.MONGO_URI)
-.then(()=> console.log('Db Connected'));
+ .then(() => console.log('Db Connected'));
 
 mongoose.connection.on('error',err=> {
-    console.log(`Db Connection Error : ${err.message}`);
+    console.log(`Db Connection Error : ${err.message}`)
 });
+
 
 const postRoutes = require('./routes/post');
 const authRoutes = require('./routes/auth');
@@ -38,10 +40,15 @@ app.get('/', async (req, res) => {
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParse());
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000'], 
+}));
+
+
 app.use("/", postRoutes);
 app.use("/", authRoutes);
 app.use("/", userRoutes);
+
 
 app.use(function (err,req,res,next){
     if(err.name==='UnauthorizedError'){
@@ -49,7 +56,7 @@ app.use(function (err,req,res,next){
     }
 });
 
-const port = process.env.port || 8081;
+const port = process.env.Port || 8081;
 app.listen(port,()=>
 { console.log(`Serve is listening on port: ${port}`)
 });

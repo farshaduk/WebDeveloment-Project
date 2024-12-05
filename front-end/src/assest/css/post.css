@@ -1,0 +1,53 @@
+.post-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .post-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .post-header .name {
+    font-weight: bold;
+  }
+  .post-header .time {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  .post-body img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  .post-footer {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  .comment-section {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+  .comment img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .comment .comment-body {
+    margin-left: 10px;
+  }
+  .comment .name {
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  .comment .time {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  .load-more {
+    color: #007bff;
+    cursor: pointer;
+  }

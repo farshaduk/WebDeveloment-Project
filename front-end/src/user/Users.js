@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../assest/css/main.css"; // Custom CSS
+import { IsAuthenticated } from "../auth";
 
 const Users = () => {
   const [users, setUsers] = React.useState([]);
+  const isAuthenticated = IsAuthenticated();
 
   React.useEffect(() => {
     const fetchUsers = async () => {
@@ -20,7 +22,11 @@ const Users = () => {
         if (data.error) {
           console.error("Error fetching users:", data.error);
         } else {
-          setUsers(data.users.slice(0, 5)); // Fetch only the first 5 users
+
+          const filteredUsers = data.users.filter(
+            (user) => user._id !== isAuthenticated.user._id 
+          );
+          setUsers(filteredUsers.slice(0, 5)); // Limit to the first 5 users
         }
       } catch (err) {
         console.error("Network error:", err);

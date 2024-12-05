@@ -7,6 +7,9 @@ import Profile from "./user/profile";
 import AllUsers  from "./user/AllUsers";
 import UserProfile from "./user/UserProfile";
 import EditProfile from "./user/EditProfile";
+import Explorer from "./Allposts/Explorer";
+import Postdetails from "./post/postdetails";
+
 
 import Menu from "./Core/Menu";
 
@@ -22,6 +25,8 @@ const MainRouter = () => {
         <Route path="/all-users" element={<AllUsers  />} />
         <Route path="/user/profile/:id" element={<UserProfile />} />
         <Route path="/user/edit/:userId" element={<EditProfile />} />
+        <Route path="/explorer" element={<Explorer />} />
+        <Route path="/postdetails/:postId" element={<Postdetails />} />
       </Routes>
     </BrowserRouter>
   );

@@ -12,6 +12,7 @@ exports.createPostValidator = [
     next();
   }
 ];
+
 exports.createContactValidator = [
   body('firstname', 'firstname is required').notEmpty(),
   body('firstname', 'firstname must be between 4 and 150 characters').isLength({ min: 4, max: 150 }),

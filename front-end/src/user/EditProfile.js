@@ -42,7 +42,6 @@ const EditProfile = () => {
         });
 
         const data = await response.json();
-
         if (isMounted) {
           if (!data.error) {
             setUser(data);
@@ -178,8 +177,7 @@ const EditProfile = () => {
                     className="form-control"
                     defaultValue={user?.name || ""}
                     ref={nameRef}
-                    required
-                  />
+                    required/>
                 </div>
                 <div className="col-md-6 mb-3">
                   <label htmlFor="lastname" className="form-label">Lastname</label>
@@ -188,8 +186,7 @@ const EditProfile = () => {
                     className="form-control"
                     defaultValue={user?.lastname || ""}
                     ref={lastnameRef}
-                    required
-                  />
+                    required/>
                 </div>
               </div>
               <div className="row">

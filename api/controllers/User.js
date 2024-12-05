@@ -2,7 +2,7 @@ const _ = require('lodash')
 const User= require('../Models/user');
 const { validatePasswordUpdate } = require('../Validators/index');
 
-exports.userById = async (req, res, next, id) => {
+exports.userById = async (req, res, next, id) => {   
    try {
       const user = await User.findById(id);
       if (!user) {
@@ -10,10 +10,11 @@ exports.userById = async (req, res, next, id) => {
       }
       req.profile = user;
       next(); // Proceed to the next middleware if the user is found
-   } catch (err) {
+   } catch (err) {     
       res.status(500).json({ error: "Server error while finding user" });
    }
 };
+
 
  exports.hasAuthorization = async (req, res, next) => {
    try {
